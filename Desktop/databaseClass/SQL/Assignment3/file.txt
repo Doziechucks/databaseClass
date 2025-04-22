@@ -198,3 +198,4 @@ CT MAX(Total_Revenue) FROM Drivers_Total_Revenue);
     -> FROM Rides r
     -> JOIN Riders rd ON r.RiderID = rd.RiderID
     -> WHERE r.Rating < 3;
+

@@ -1,0 +1,38 @@
+source DBP-e15-MySQL-MI-CH02-Create-Tables.sql;
+source DBP-e15-MySQL-MI-CH02-Insert-Data.sql;
+
+1. SELECT * FROM ITEM;
+   SELECT * FROM SHIPMENT;
+   SELECT * FROM SHIPMENT_ITEM;
+2. SELECT ShipmentID, ShipperName, ShipperInvoiceNumber FROM SHIPMENT;
+
+3. SELECT ShipmentID, ShipperName, ShipperInvoiceNumber FROM SHIPMENT WHERE InsuredValue > 10000.00;
+
+4. SELECT ShipmentID, ShipperName, ShipperInvoiceNumber FROM SHIPMENT WHERE ShipperName LIKE 'AB%';
+
+5. SELECT ShipmentID, ShipperName, ShipperInvoiceNumber 
+    -> FROM SHIPMENT
+    -> WHERE
+    -> MONTH(ArrivalDate) = 12;
+
+6. SELECT ShipmentID, ShipperName, ShipperInvoiceNumber  FROM SHIPMENT WHERE DAY(ArrivalDate) = 10;
+
+7. SELECT ShipmentID, ShipperName, ShipperInvoiceNumber 
+    -> FROM SHIPMENT
+    -> WHERE InsuredValue = (SELECT MAX(InsuredValue) FROM SHIPMENT);
+   SELECT ShipmentID, ShipperName, ShipperInvoiceNumber  FROM SHIPMENT WHERE InsuredValue = (SELECT MIN(InsuredValue) FROM SHIPMENT);
+
+7* SELECT 'Max' Indicator, ShipmentID, ShipperName, ShipperInvoiceNumber  FROM SHIPMENT WHERE InsuredValue = (SELECT MAX(InsuredValue) FROM SHIPMENT) UNION ALL SELECT 'Min' Indicator, ShipmentID, ShipperName, ShipperInvoiceNumber  FROM SHIPMENT WHERE InsuredValue = (SELECT MIN(InsuredValue) FROM SHIPMENT); 
+
+8. SELECT AVG(InsuredValue) AS AverageInsuredValue
+    -> FROM SHIPMENT;
+
+9. SELECT COUNT(*) AS totalShipments 
+    -> FROM SHIPMENT;
+
+10. SELECT ItemID, Description, Store, LocalCurrencyAmount * ExchangeRate AS USCurrencyAmount
+    -> FROM ITEM;
+
+11. SELECT City AS cities, Store AS stores, GROUP_CONCAT(Description) AS item FROM ITEM GROUP BY City, Store;
+
+12. SELECT City AS cities, Store AS stores, COUNT(*) AS purchases, GROUP_CONCAT(Description) AS item FROM ITEM GROUP BY City, Store;
