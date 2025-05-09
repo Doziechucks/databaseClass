@@ -53,7 +53,7 @@ INSERT INTO Drivers (Name, Rating, TotalRides) VALUES
     -> ('Fola Akinwunmi', 4.5, 125),
     -> ('Oluwaseun Bello', 4.1, 115),
     -> ('Kayode Ogunleye', 4.8, 180),
-    -> ('Chinonso Ifeanyi', 3.8, 85),
+    -> ('Chinonso Ifeanyichukwu', 3.8, 85),
     -> ('Oluwafunmilayo Bello', 4.3, 140),
     -> ('Adeola Akin', 4.6, 160);
 
